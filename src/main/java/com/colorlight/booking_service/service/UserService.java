@@ -22,4 +22,9 @@ public class UserService {
                 .name(dto.getName())
                 .role(dto.getRole()).build()).getId();
     }
+
+    public User findById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("UserService: unexpected user"));
+    }
 }

@@ -1,5 +1,5 @@
 package com.colorlight.booking_service.domain;
 
 public enum Role {
-    USER, BUSINESS, ADMIN
+    ROLE_USER, ROLE_BUSINESS, ROLE_ADMIN
 }
