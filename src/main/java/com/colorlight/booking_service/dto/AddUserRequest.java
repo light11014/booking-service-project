@@ -13,4 +13,9 @@ public class AddUserRequest {
     private String email;
     private String name;
     private String phoneNumber;
+
+    // business 필드
+    private String companyAddress;
+    private String companyName;
+    private String businessNumber;
 }
