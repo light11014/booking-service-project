@@ -1,10 +1,12 @@
 package com.colorlight.booking_service.config;
 
+import com.colorlight.booking_service.domain.Role;
 import com.colorlight.booking_service.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -36,7 +38,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/signup", "/events", "/user").permitAll()
+                        .requestMatchers("/api/**").permitAll() // 개발의 편의
+                        .requestMatchers("/login", "/signup", "/user", "/events").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")

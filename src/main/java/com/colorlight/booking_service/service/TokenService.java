@@ -12,7 +12,7 @@ import java.time.Duration;
 public class TokenService {
     private final TokenProvider tokenProvider;
     private final RefreshTokenService refreshTokenService;
-    private final UserService userService;
+    private final CommonUserService userService;
     private Long userId;
 
     public String createNewAccessToken(String refreshToken) {

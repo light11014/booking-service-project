@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>이벤트 등록</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <style>
+    .container {
+        max-width: 700px;
+        margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4">이벤트 등록</h2>
+
+  <form th:action="@{/events}" method="post">
+    <div class="form-group">
+      <label for="name">이벤트 이름</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">설명</label>
+      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">이벤트 시작일</label>
+      <input type="date" class="form-control" id="startDate" name="startDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">이벤트 종료일</label>
+      <input type="date" class="form-control" id="endDate" name="endDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="openDate">이벤트 공개일 (날짜 및 시간)</label>
+      <input type="datetime-local" class="form-control" id="openDate" name="openDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ticketOpenDate">티켓 오픈일 (날짜 및 시간)</label>
+      <input type="datetime-local" class="form-control" id="ticketOpenDate" name="ticketOpenDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="maxTicketPerUser">1인당 최대 티켓 수</label>
+      <input type="number" class="form-control" id="maxTicketPerUser" name="maxTicketPerUser" min="1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">등록</button>
+    <a th:href="@{/events}" class="btn btn-secondary">취소</a>
+  </form>
+</div>
+
+</body>
+</html>

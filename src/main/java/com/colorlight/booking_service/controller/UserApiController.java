@@ -19,8 +19,8 @@ public class UserApiController {
     @PostMapping("/user")
     public String signup(AddUserRequest request) {
         switch (request.getRole()) {
-            case ROLE_BUSINESS -> commonUserService.save(request);
-            case ROLE_USER -> businessUserService.save(request);
+            case BUSINESS -> businessUserService.save(request);
+            case USER -> commonUserService.save(request);
         }
 
         return "redirect:/login";

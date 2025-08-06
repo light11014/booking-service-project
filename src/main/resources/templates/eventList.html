@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 목록 - 예약 서비스</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .event-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .event-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 상단 영역 -->
+    <div class="header">
+        <a th:href="@{/login}" class="btn btn-outline-primary">로그인</a>
+        <h2>이벤트 목록</h2>
+        <a th:href="@{/events/register}" class="btn btn-success">이벤트 등록</a>
+    </div>
+
+    <!-- 이벤트 리스트 -->
+    <div th:each="event : ${events}" class="event-card">
+        <div class="event-title" th:text="${event.name}">이벤트 이름</div>
+        <p th:text="${event.description}">이벤트 설명</p>
+        <p>
+            <strong>이벤트 기간: </strong>
+            <span th:text="${event.startDate}">2025-08-01</span> ~
+            <span th:text="${event.endDate}">2025-08-10</span>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
